@@ -1,0 +1,9 @@
+D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\bin\Debug\ModernFlatUI.exe.config
+D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\bin\Debug\ModernFlatUI.exe
+D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\bin\Debug\ModernFlatUI.pdb
+D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.csproj.AssemblyReference.cache
+D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.Properties.Resources.resources
+D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.csproj.GenerateResource.cache
+D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.csproj.CoreCompileInputs.cache
+D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.exe
+D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.pdb
