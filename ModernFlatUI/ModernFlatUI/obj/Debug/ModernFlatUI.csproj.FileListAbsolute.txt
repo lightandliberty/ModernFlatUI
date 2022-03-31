@@ -7,3 +7,6 @@ D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.csp
 D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.csproj.CoreCompileInputs.cache
 D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.exe
 D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.pdb
+D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\bin\Debug\FontAwesome.Sharp.dll
+D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.MainForm.resources
+D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.csproj.CopyComplete

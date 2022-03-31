@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FontAwesome.Sharp;
 
 namespace ModernFlatUI
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        //Fields
+        private IconButton currentBtn;
+        private Panel leftBorderBtn;
+        public MainForm()
         {
             InitializeComponent();
         }
