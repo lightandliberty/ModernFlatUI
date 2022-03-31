@@ -121,5 +121,17 @@ namespace ModernFlatUI
         {
             ActivateButton(sender, RGBColors.color6);
         }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+
+        private void Reset()
+        {
+
+        }
+
+
     }
 }

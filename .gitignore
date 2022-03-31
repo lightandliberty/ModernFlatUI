@@ -6,6 +6,7 @@
 # 이렇게만 해도 하위 폴더 중 dbg/ 폴더는 모두 ignore됨.
 dbg/
 
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -38,8 +39,6 @@ Release/
 
 #nuget packages
 packages/
-*.nupkg
-
 # Ignore NuGet Packages
 *.nupkg
 
