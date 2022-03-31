@@ -36,6 +36,8 @@ $RECYCLE.BIN/
 # Debug Folder
 Debug/
 Release/
+obj/Debug/
+bin/Debug/
 
 #nuget packages
 packages/
