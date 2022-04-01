@@ -1,7 +1,6 @@
 D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\bin\Debug\ModernFlatUI.exe.config
 D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\bin\Debug\ModernFlatUI.exe
 D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\bin\Debug\ModernFlatUI.pdb
-D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.csproj.AssemblyReference.cache
 D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.Properties.Resources.resources
 D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.csproj.GenerateResource.cache
 D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.csproj.CoreCompileInputs.cache
@@ -10,3 +9,10 @@ D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.pdb
 D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\bin\Debug\FontAwesome.Sharp.dll
 D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.MainForm.resources
 D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.csproj.CopyComplete
+D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.Forms.FormCustomers.resources
+D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.Forms.FormDashboard.resources
+D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.Forms.FormMarketing.resources
+D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.Forms.FormProducts.resources
+D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.Forms.FormSetting.resources
+D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.csproj.AssemblyReference.cache
+D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.Forms.FormOrders.resources

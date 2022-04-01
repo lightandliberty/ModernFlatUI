@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using ModernFlatUI.Forms;
 
 namespace ModernFlatUI
 {
@@ -17,6 +18,7 @@ namespace ModernFlatUI
         //Fields
         private IconButton currentBtn;
         private Panel leftBorderOfBtn;
+        private Form currentChildForm;
 
         // 생성자
         public MainForm()
@@ -26,9 +28,10 @@ namespace ModernFlatUI
             leftBorderOfBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderOfBtn);
             // 폼
-            this.Text = string.Empty;
-            this.ControlBox = false;    // 상단 표시줄 옆 메뉴 삭제
+//            this.Text = string.Empty;
+//            this.ControlBox = false;    // 상단 표시줄 옆 메뉴 삭제
             this.DoubleBuffered = true;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
 
@@ -78,7 +81,7 @@ namespace ModernFlatUI
                 // 현재 선택한 아이콘과 색을 표시
                 iconCurrentChildForm.IconChar = currentBtn.IconChar;
                 iconCurrentChildForm.IconColor = color;
-                lblTitleChildForm.Text = currentBtn.Text;
+                // lblTitleChildForm.Text = currentBtn.Text; // childForm.Text와 같을 것 같기도 하지만, 일단 주석 처리
             }
         }
 
@@ -103,39 +106,68 @@ namespace ModernFlatUI
             }
         }
 
+        // 기존 자식 폼 닫고, 모덜리스로 판넬에 붙이고 엶. (.Add로 컨트롤에 붙였는데, Remove안 해주고 .Close()만 해줘도 되는 건가?)
+        private void OpenChildForm(Form childForm)
+        {
+            if(currentChildForm != null)
+            {
+                //open only form
+                currentChildForm.Close(); // 기존의 자식 폼은 닫음
+            }
+            currentChildForm = childForm;   // 매개변수로부터 전역 변수에 저장
+            // 폼을 panelDesktop에 붙이기 전에 설정.
+            childForm.TopLevel = false; // 최상의 창으로 표시하지 않음.
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            // 판넬에 폼을 붙이고, 가장 앞으로 보이게 하고, Show() 모달리스 방식으로 엶.
+            panelDesktop.Controls.Add(childForm);
+            panelDesktop.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+            lblTitleChildForm.Text = childForm.Text;
+        }
+
+
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new FormDashboard()); // 기존ChildForm을 닫고, 판넬에 새 ChildForm을 붙임.
         }
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new FormOrders()); // 기존ChildForm을 닫고, 판넬에 새 ChildForm을 붙임.
         }
 
         private void btnProducts_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
+            OpenChildForm(new FormProducts()); // 기존ChildForm을 닫고, 판넬에 새 ChildForm을 붙임.
         }
 
         private void btnCustomers_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
+            OpenChildForm(new FormCustomers()); // 기존ChildForm을 닫고, 판넬에 새 ChildForm을 붙임.
         }
 
         private void btnMarketing_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
+            OpenChildForm(new FormMarketing()); // 기존ChildForm을 닫고, 판넬에 새 ChildForm을 붙임.
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
+            OpenChildForm(new FormSetting()); // 기존ChildForm을 닫고, 판넬에 새 ChildForm을 붙임.
         }
 
         // 
         private void btnHome_Click(object sender, EventArgs e)
         {
+            currentChildForm.Close();
             Reset();
         }
 
@@ -177,6 +209,28 @@ namespace ModernFlatUI
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+
+            Application.Exit(); // 모든 메시지 루프를 종료하고, 모든 창을 닫아 폼의 정리코드(Form.OnClose등)을 실행할 수 있는 가능성을 제공
+            // Environment.Exit(0); // 프로세스를 죽임. 리소스(데이터베이스 연결 등)가 제대로 해제되지 않고, 파일이 플러쉬되지 않을 수 있음. 저장되지 않은 변경사항이 있을 경우, 사용자에게 묻는 메시지 등이 표시되지 않음.
+            // this.Close(); // 폼을 닫음. 다른 폼이 열려 있는 경우, 프로그램이 종료되지 않음.
+        }
+
+        private void btnMaximize_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal) // 윈도우 상태가 노멀이면 최대화로 설정
+                WindowState = FormWindowState.Maximized;
+            else                                       // 최소화된 상태나 최대화된 상태면, 노멀 상태로 설정.
+                WindowState = FormWindowState.Normal;
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            // 윈도우 상태를 최소화 상태로 함.(이미 최소화 되어 있으면 최소화 버튼이 보이지 않으므로, 구현하지 않음)
+            WindowState = FormWindowState.Minimized;
         }
     }
 }
