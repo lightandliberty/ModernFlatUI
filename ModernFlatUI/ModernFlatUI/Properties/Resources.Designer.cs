@@ -63,9 +63,9 @@ namespace ModernFlatUI.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap piony {
+        internal static System.Drawing.Bitmap peony {
             get {
-                object obj = ResourceManager.GetObject("piony", resourceCulture);
+                object obj = ResourceManager.GetObject("peony", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

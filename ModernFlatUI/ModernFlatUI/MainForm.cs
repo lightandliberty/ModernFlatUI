@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices; // DllImport를 위해 추가
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,6 +25,10 @@ namespace ModernFlatUI
             leftBorderOfBtn = new Panel();
             leftBorderOfBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderOfBtn);
+            // 폼
+            this.Text = string.Empty;
+            this.ControlBox = false;    // 상단 표시줄 옆 메뉴 삭제
+            this.DoubleBuffered = true;
         }
 
 
@@ -68,6 +73,12 @@ namespace ModernFlatUI
                 leftBorderOfBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderOfBtn.Visible = true;
                 leftBorderOfBtn.BringToFront();
+                //Icon Current Child Form
+                // 현재 집 모양 아이콘
+                // 현재 선택한 아이콘과 색을 표시
+                iconCurrentChildForm.IconChar = currentBtn.IconChar;
+                iconCurrentChildForm.IconColor = color;
+                lblTitleChildForm.Text = currentBtn.Text;
             }
         }
 
@@ -122,6 +133,7 @@ namespace ModernFlatUI
             ActivateButton(sender, RGBColors.color6);
         }
 
+        // 
         private void btnHome_Click(object sender, EventArgs e)
         {
             Reset();
@@ -129,9 +141,42 @@ namespace ModernFlatUI
 
         private void Reset()
         {
-
+            // 반영했던 아이콘 모양과 색을 원래대로 설정
+            DisableButton();
+            leftBorderOfBtn.Visible = false;
+            iconCurrentChildForm.IconChar = IconChar.Home;
+            iconCurrentChildForm.IconColor = Color.MediumPurple;
+            lblTitleChildForm.Text = "Home";
         }
 
+        // 폼 드래그 이동 위해 Import
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture(); // 리턴형 bool로 하면, 성공시 bool값 리턴. GetLastError를 호출해서 실패 이유 확인도 가능.
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")] // 가져오는 메서드 하나하나에 대해서, 적어주는 듯하다.
+        // wParam에 사용할 수 있는 값들
+        // #define SC_SZLEFT (0xF001)
+        // #define SC_SZRIGHT (0xF002)
+        // #define SC_SZTOP (0xF003)
+        // #define SC_SZTOPLEFT (0xF004)
+        // #define SC_SZTOPRIGHT (0xF005)
+        // #define SC_SZBOTTOM (0xF006)
+        // #define SC_SZBOTTOMLEFT (0xF007)
+        // #define SC_SZBOTTOMRIGHT (0xF008)
+        // #define SC_DRAGMOVE (0xF012)
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
+        // 폼 드래그 이동
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 화면 영역 밖에서 WM_MOUSEMOVE가 더 이상 받아지지 않음. <-> HWND SetCapture(HWND hWnd);이전 SetCapture했던 HWND반환. 없으면 NULL
+            ReleaseCapture(); 
+            // 0x112는 WM_SYSCOMMAND, 0xf012는 SC_DRAGMOVE
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

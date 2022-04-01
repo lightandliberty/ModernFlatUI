@@ -39,8 +39,9 @@ namespace ModernFlatUI
             this.panelLogo = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.PictureBox();
             this.panelTitleBar = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitleChildForm = new System.Windows.Forms.Label();
             this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
+            this.btnClose = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
@@ -51,6 +52,7 @@ namespace ModernFlatUI
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.panelMenu.Controls.Add(this.btnClose);
             this.panelMenu.Controls.Add(this.btnSetting);
             this.panelMenu.Controls.Add(this.btnMarketing);
             this.panelMenu.Controls.Add(this.btnCustomers);
@@ -210,7 +212,7 @@ namespace ModernFlatUI
             // 
             // btnHome
             // 
-            this.btnHome.Image = global::ModernFlatUI.Properties.Resources.piony;
+            this.btnHome.Image = global::ModernFlatUI.Properties.Resources.peony;
             this.btnHome.Location = new System.Drawing.Point(4, 13);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(213, 110);
@@ -222,23 +224,24 @@ namespace ModernFlatUI
             // panelTitleBar
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
-            this.panelTitleBar.Controls.Add(this.label1);
+            this.panelTitleBar.Controls.Add(this.lblTitleChildForm);
             this.panelTitleBar.Controls.Add(this.iconCurrentChildForm);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Location = new System.Drawing.Point(220, 0);
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(599, 75);
             this.panelTitleBar.TabIndex = 1;
+            this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
-            // label1
+            // lblTitleChildForm
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(40, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Home";
+            this.lblTitleChildForm.AutoSize = true;
+            this.lblTitleChildForm.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblTitleChildForm.Location = new System.Drawing.Point(40, 38);
+            this.lblTitleChildForm.Name = "lblTitleChildForm";
+            this.lblTitleChildForm.Size = new System.Drawing.Size(38, 12);
+            this.lblTitleChildForm.TabIndex = 1;
+            this.lblTitleChildForm.Text = "Home";
             // 
             // iconCurrentChildForm
             // 
@@ -253,10 +256,22 @@ namespace ModernFlatUI
             this.iconCurrentChildForm.TabIndex = 0;
             this.iconCurrentChildForm.TabStop = false;
             // 
+            // btnClose
+            // 
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.Location = new System.Drawing.Point(42, 540);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(0, 0);
+            this.btnClose.TabIndex = 8;
+            this.btnClose.Text = "닫기";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(819, 631);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
@@ -286,7 +301,8 @@ namespace ModernFlatUI
         private System.Windows.Forms.PictureBox btnHome;
         private System.Windows.Forms.Panel panelTitleBar;
         private FontAwesome.Sharp.IconPictureBox iconCurrentChildForm;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitleChildForm;
+        private System.Windows.Forms.Button btnClose;
     }
 }
 
