@@ -14,5 +14,4 @@ D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.For
 D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.Forms.FormMarketing.resources
 D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.Forms.FormProducts.resources
 D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.Forms.FormSetting.resources
-D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.csproj.AssemblyReference.cache
 D:\Programming\ModernFlatUI\ModernFlatUI\ModernFlatUI\obj\Debug\ModernFlatUI.Forms.FormOrders.resources
